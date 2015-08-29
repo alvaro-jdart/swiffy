@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jdart.Swiffy", "Jdart.Swiffy\Jdart.Swiffy.csproj", "{FFEEEB2F-9B20-4B05-B62E-E474D77016FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{FDEAE714-B7CB-4506-94AB-FF7BBD928752}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFEEEB2F-9B20-4B05-B62E-E474D77016FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFEEEB2F-9B20-4B05-B62E-E474D77016FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFEEEB2F-9B20-4B05-B62E-E474D77016FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFEEEB2F-9B20-4B05-B62E-E474D77016FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEAE714-B7CB-4506-94AB-FF7BBD928752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEAE714-B7CB-4506-94AB-FF7BBD928752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEAE714-B7CB-4506-94AB-FF7BBD928752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEAE714-B7CB-4506-94AB-FF7BBD928752}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
