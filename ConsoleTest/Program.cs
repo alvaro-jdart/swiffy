@@ -18,6 +18,8 @@ namespace ConsoleTest
          
             var result = swiffyClient.ConvertToHtml5Async(swf).Result;
             var result2 = swiffyClient.ConvertToHtml5Async(swf).Result;
+
+            File.WriteAllBytes("sample.html", Encoding.UTF8.GetBytes(result));
         }
     }
 }
