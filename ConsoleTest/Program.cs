@@ -17,6 +17,7 @@ namespace ConsoleTest
             var swiffyClient = new SwiffyClient();
          
             var result = swiffyClient.ConvertToHtml5Async(swf).Result;
+            var result2 = swiffyClient.ConvertToHtml5Async(swf).Result;
         }
     }
 }

@@ -16,6 +16,9 @@ namespace Jdart.Swiffy
 
         public SwiffyOptions Options { get; }
 
+        private readonly Lazy<DataContractJsonSerializer> _requestSerializer = new Lazy<DataContractJsonSerializer>(() => new DataContractJsonSerializer(typeof(GoogleApiRequest)));
+        private readonly Lazy<DataContractJsonSerializer> _responseSerializer = new Lazy<DataContractJsonSerializer>(() => new DataContractJsonSerializer(typeof(GoogleApiResponse)));
+
         public SwiffyClient(SwiffyOptions options = null)
         {
             Options = options ?? new SwiffyOptions
@@ -32,9 +35,6 @@ namespace Jdart.Swiffy
         public async Task<string> ConvertToHtml5Async(byte[] swf)
         {
             if (swf == null) throw new ArgumentNullException(nameof(swf));
-
-            var requestSerializer = new DataContractJsonSerializer(typeof(GoogleApiRequest));
-            var responseSerializer = new DataContractJsonSerializer(typeof(GoogleApiResponse));
 
             using (var httpClient = new HttpClient())
             {
@@ -57,11 +57,11 @@ namespace Jdart.Swiffy
                     }
                 };
 
-                using (var streamContent = new PushStreamContent(stream => Task.Run(() => requestSerializer.WriteObject(stream, requestModel))))
+                using (var streamContent = new PushStreamContent(stream => Task.Run(() => _requestSerializer.Value.WriteObject(stream, requestModel))))
                 {
                     using (var response = await httpClient.PostAsync(GOOGLE_API_URL, streamContent).ConfigureAwait(false))
                     {
-                        var responseJson = (GoogleApiResponse)responseSerializer.ReadObject(await response.Content.ReadAsStreamAsync().ConfigureAwait(false));
+                        var responseJson = (GoogleApiResponse)_responseSerializer.Value.ReadObject(await response.Content.ReadAsStreamAsync().ConfigureAwait(false));
 
                         if(responseJson.Error != null)
                         {
