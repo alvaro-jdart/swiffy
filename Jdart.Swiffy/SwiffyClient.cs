@@ -73,7 +73,7 @@ namespace Jdart.Swiffy
                             var base64 = responseJson.Result.Response.Output.Replace('-', '+')
                                                                             .Replace('_', '/');
 
-                            base64 = base64.PadRight(base64.Length + (4 - base64.Length % 4), '=');
+                            base64 = base64.PadRight(base64.Length + (4 - base64.Length % 4) % 4, '=');
 
                             var gzip = Convert.FromBase64String(base64);
 
